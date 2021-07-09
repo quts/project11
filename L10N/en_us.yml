@@ -1,0 +1,15 @@
+dashboard:
+  index.html:
+    - BusinessName: The Business
+    - LoginUserName: Logged in as
+    - SampleLoginUserName: Default User
+    - Dashboard: Dashboard
+    - CustomerNameDefault: Company Name
+  login.html:
+    - BusinessName: The Business
+    - LabelEmailAddress: Email Address
+    - LabelPassword: Password
+    - ChkBoxRememberPassword: Remember Password
+    - LnkForgetPassword: Forgot Password
+    - BtnLogin: Login
+    - LnkSignUp: Sign Up

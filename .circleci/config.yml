@@ -13,12 +13,34 @@ jobs:
             apt-get install git -y
       - setup_remote_docker
       - checkout
+      - attach_workspace:
+          at: dashboard/out
       - run:
           name: Docker build 
           command: |
             docker-compose build
 
+  generate-l10n-pages:
+    working_directory: /project 
+    docker:
+      - image: python:3.9.6
+    steps:
+      - checkout
+      - run:
+          name: L10N 
+          command: |
+            cd L10N
+            python -m pip install -r requirements.txt
+            python translate.py
+      - persist_to_workspace:
+          root: dashboard
+          paths:
+            - out
+
 workflows:
   build:
     jobs:
-      - build-dashboard
+      - build-dashboard:
+          requires:
+            - generate-l10n-pages
+      - generate-l10n-pages

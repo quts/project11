@@ -1,0 +1,15 @@
+dashboard:
+  index.html:
+    - BusinessName: The Business
+    - LoginUserName: 使用者
+    - SampleLoginUserName: 預設使用者
+    - Dashboard: 儀表板
+    - CustomerNameDefault: 公司名稱
+  login.html:
+    - BusinessName: The Business
+    - LabelEmailAddress: 電子郵件地址
+    - LabelPassword: 密碼
+    - ChkBoxRememberPassword: 記住密碼
+    - LnkForgetPassword: 忘記密碼
+    - BtnLogin: 登入
+    - LnkSignUp: 註冊
