@@ -1,6 +1,10 @@
 version: '2'
 services:
   dashboard:
-     build: ./dashboard
-     ports:
-       - "8080:80"
+    build: ./dashboard
+    ports:
+      - "80:80"
+  api:
+    build: ./api
+    ports:
+      - "9527:9527"

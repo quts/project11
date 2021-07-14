@@ -18,7 +18,24 @@ jobs:
       - run:
           name: Docker build 
           command: |
-            docker-compose build
+            docker-compose build dashboard
+
+  build-api:
+    working_directory: /project  
+    docker:
+      - image: docker/compose:1.25.0-rc2-debian
+    steps:
+      - run:
+          name: Configure environment
+          command: |
+            apt-get update
+            apt-get install git -y
+      - setup_remote_docker
+      - checkout
+      - run:
+          name: Docker build 
+          command: |
+            docker-compose build api
 
   generate-l10n-pages:
     working_directory: /project 
@@ -40,6 +57,7 @@ jobs:
 workflows:
   build:
     jobs:
+      - build-api
       - build-dashboard:
           requires:
             - generate-l10n-pages
