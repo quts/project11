@@ -1,10 +1,15 @@
 version: '2'
 services:
   dashboard:
+    container_name: vdashboard
     build: ./dashboard
     ports:
       - "80:80"
   api:
+    container_name: vapi
     build: ./api
     ports:
-      - "9527:9527"
+      - "9527:8080"
+  redis:
+    container_name: vredis
+    image: redis:latest
